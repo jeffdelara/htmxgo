@@ -1,0 +1,23 @@
+{{ block "index" . }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="count">
+        {{ template "count" . }}
+    </div>
+    <button hx-target="#count" hx-post="/count">Increment</button>
+</body>
+</html>
+{{ end }}
+
+{{ block "count" . }}
+    Count {{ .Count }}
+{{ end }}
